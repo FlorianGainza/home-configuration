@@ -2,6 +2,7 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'fatih/vim-go'
+Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
