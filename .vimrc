@@ -3,8 +3,12 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'fatih/vim-go'
 Plug 'tpope/vim-fugitive'
+Plug 'altercation/vim-colors-solarized'
+"Plug 'Valloric/YouCompleteMe'
 
 call plug#end()
+
+"execute pathogen#infect()
 
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
@@ -49,6 +53,9 @@ endif
 if &t_Co > 2 || has("gui_running")
   syntax on
   set hlsearch
+  set number
+  set background=light
+  colorscheme solarized
 endif
 
 " Only do this part when compiled with support for autocommands.
@@ -93,3 +100,13 @@ if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
 		  \ | wincmd p | diffthis
 endif
+
+" Go config
+set autowrite
+let g:go_fmt_command = "goimports"
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_extra_types = 1
